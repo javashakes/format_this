@@ -28,7 +28,7 @@ $plugin_info = array(
 	'pi_name'		=> 'Format This!',
 	'pi_version'	=> '0.6',
 	'pi_author'		=> 'Matthew Kirkpatrick',
-	'pi_author_url'	=> 'http://www.immergetech.com',
+	'pi_author_url'	=> 'http://www.designafterdusk.com',
 	'pi_description'=> 'Format Numbers and Strings!',
 	'pi_usage'		=> Format_this::usage()
 );
