@@ -1,38 +1,24 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * ExpressionEngine - by EllisLab
- *
- * @package		ExpressionEngine
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2003 - 2011, EllisLab, Inc.
- * @license		http://expressionengine.com/user_guide/license.html
- * @link		http://expressionengine.com
- * @since		Version 2.0
- * @filesource
- */
- 
-// ------------------------------------------------------------------------
-
-/**
  * Format This! Plugin
  *
- * @package		ExpressionEngine
+ * @package		format_this
  * @subpackage	Addons
  * @category	Plugin
  * @author		Matthew Kirkpatrick
  * @link		http://www.designafterdusk.com
  */
 
+// 
 $plugin_info = array(
-	'pi_name'		=> 'Format This!',
-	'pi_version'	=> '0.6',
-	'pi_author'		=> 'Matthew Kirkpatrick',
-	'pi_author_url'	=> 'http://www.designafterdusk.com',
-	'pi_description'=> 'Format Numbers and Strings!',
+	'pi_name'		=> FORMAT_THIS_NAME,
+	'pi_version'	=> FORMAT_THIS_VERSION,
+	'pi_author'		=> FORMAT_THIS_AUTHOR,
+	'pi_author_url'	=> FORMAT_THIS_AUTHOR_URL,
+	'pi_description'=> FORMAT_THIS_DESC,
 	'pi_usage'		=> Format_this::usage()
 );
-
 
 class Format_this {
 
@@ -43,7 +29,7 @@ class Format_this {
 	 */
 	public function __construct()
 	{
-		$this->EE =& get_instance();
+		ee() =& get_instance();
 		
 		// Default output
 		$this->return_data = "Format This! Please read the documentation.";
@@ -53,23 +39,23 @@ class Format_this {
 	public function string ()
 	{
 		$input		= "Hello World! The quick brown fox jumps over the lazy dog.";
-		$actions	= $this->EE->TMPL->fetch_param('actions', NULL);
+		$actions	= ee()->TMPL->fetch_param('actions', NULL);
 
 		// From Publish page
 		if (!empty($direct) && "" != $direct) { $input = $direct; }
 
 		// From a tag parameter
 		else if (
-			NULL !== $this->EE->TMPL->fetch_param('string', NULL) &&
-			"" != $this->EE->TMPL->fetch_param('string', NULL)
+			NULL !== ee()->TMPL->fetch_param('string', NULL) &&
+			"" != ee()->TMPL->fetch_param('string', NULL)
 		) {
-			$input = $this->EE->TMPL->fetch_param('string', NULL);
+			$input = ee()->TMPL->fetch_param('string', NULL);
 		}
 		// From tag pair data
 		else if (
-			'' != $this->EE->TMPL->tagdata
+			'' != ee()->TMPL->tagdata
 		) {
-			$input = $this->EE->TMPL->tagdata;
+			$input = ee()->TMPL->tagdata;
 		}
 		
 		$output = $input;
@@ -99,26 +85,26 @@ class Format_this {
 	public function number ()
 	{
 		$input			= 0.0;
-		$decimals		= $this->EE->TMPL->fetch_param('decimals', NULL);
-		$dec_point		= $this->EE->TMPL->fetch_param('dec_point', NULL);
-		$thousands_sep	= $this->EE->TMPL->fetch_param('thousands_sep', NULL);
+		$decimals		= ee()->TMPL->fetch_param('decimals', NULL);
+		$dec_point		= ee()->TMPL->fetch_param('dec_point', NULL);
+		$thousands_sep	= ee()->TMPL->fetch_param('thousands_sep', NULL);
 
 		// From Publish page
 		if (!empty($direct) && 0.0 != floatval($direct)) { $input = floatval($direct); }
 
 		// From a tag parameter
 		else if (
-			NULL !== $this->EE->TMPL->fetch_param('number', NULL) &&
-			0.0 != floatval($this->EE->TMPL->fetch_param('number', NULL))
+			NULL !== ee()->TMPL->fetch_param('number', NULL) &&
+			0.0 != floatval(ee()->TMPL->fetch_param('number', NULL))
 		) {
-			$input = $this->EE->TMPL->fetch_param('number', NULL);
+			$input = ee()->TMPL->fetch_param('number', NULL);
 		}
 		// From tag pair data
 		else if (
-			'' != $this->EE->TMPL->tagdata &&
-			0.0 != floatval($this->EE->TMPL->tagdata)
+			'' != ee()->TMPL->tagdata &&
+			0.0 != floatval(ee()->TMPL->tagdata)
 		) {
-			$input = $this->EE->TMPL->tagdata;
+			$input = ee()->TMPL->tagdata;
 		}
 		
 		$output = number_format($input, $decimals, $dec_point, $thousands_sep);
@@ -130,24 +116,24 @@ class Format_this {
 	public function strip ()
 	{
 		$input		= "Hello World! The quick brown fox jumps over the lazy dog.";
-		$find		= $this->EE->TMPL->fetch_param('find', NULL);
-		$replace	= $this->EE->TMPL->fetch_param('replace', NULL);
+		$find		= ee()->TMPL->fetch_param('find', NULL);
+		$replace	= ee()->TMPL->fetch_param('replace', NULL);
 
 		// From Publish page
 		if (!empty($direct) && "" != $direct) { $input = $direct; }
 
 		// From a tag parameter
 		else if (
-			NULL !== $this->EE->TMPL->fetch_param('string', NULL) &&
-			"" != $this->EE->TMPL->fetch_param('string', NULL)
+			NULL !== ee()->TMPL->fetch_param('string', NULL) &&
+			"" != ee()->TMPL->fetch_param('string', NULL)
 		) {
-			$input = $this->EE->TMPL->fetch_param('string', NULL);
+			$input = ee()->TMPL->fetch_param('string', NULL);
 		}
 		// From tag pair data
 		else if (
-			'' != $this->EE->TMPL->tagdata
+			'' != ee()->TMPL->tagdata
 		) {
-			$input = $this->EE->TMPL->tagdata;
+			$input = ee()->TMPL->tagdata;
 		}
 		
 		$output = $input;
