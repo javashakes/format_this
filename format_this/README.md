@@ -25,7 +25,7 @@ An ExpressionEngine Plugin that exposes a few simple PHP string and number forma
 | `replace` | Multiple allowed (concatenate with '&&')<br>Parsed in order of entry | string |         | NULL    |
 
 &nbsp;
-## Examples
+# Examples
 | Usage                                                                                                                      | Results                                                      |
 |----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | {exp:format_this:string}                                                                                                   | Hello World! The quick brown fox<br>jumps over the lazy dog. |
