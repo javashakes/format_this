@@ -1,5 +1,8 @@
 # format_this
-ExpressionEngine Plugin
+ExpressionEngine Plugin that exposes a few simple PHP formating functions to EE's templates.
+
+**Compatible with EE v2, v3, v4, and v5**
+
 
 {exp:format_this:string}
 ------------------------------
