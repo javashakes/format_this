@@ -1,74 +1,42 @@
-# Format This!
-ExpressionEngine Plugin that exposes a few simple PHP string and number formating functions into EE's templates.
+# Documentation
+An ExpressionEngine Plugin that exposes a few simple PHP string and number formating functions to EE templates.
 
-**Compatible with EE v2, v3, v4, and v5**
+# `{exp:format_this:string}`
+| parameter | description                                                          | type   | options                                                                           | default |
+|-----------|----------------------------------------------------------------------|--------|-----------------------------------------------------------------------------------|---------|
+| `string`  | The input being formatted                                            | string |                                                                                   | NULL    |
+| `actions` | Multiple allowed (concatenate with '&&')<br>Parsed in order of entry | string | strtoupper<br>strtolower<br>ucfirst<br>lcfirst<br>ucwords<br>stripslashes<br>trim | NULL    |
 
+&nbsp;
+# `{exp:format_this:number}`
+| parameter       | description                              | type   | options | default      |
+|-----------------|------------------------------------------|--------|---------|--------------|
+| `number`        | The input being formatted                | float  |         | 0.0          |
+| `decimals`      | Sets the number of decimal points        | int    |         | 0            |
+| `dec_point`     | Sets the separator for the decimal point | string |         | '.' (period) |
+| `thousands_sep` | Sets the thousands separator             | string |         | ',' (comma)  |
 
-## {exp:format_this:string}
+&nbsp;
+# `{exp:format_this:strip}`
+| parameter | description                                                          | type   | options | default |
+|-----------|----------------------------------------------------------------------|--------|---------|---------|
+| `string`  | The input being formatted                                            | string |         | NULL    |
+| `find`    | Multiple allowed (concatenate with '&&')<br>Parsed in order of entry | string |         | NULL    |
+| `replace` | Multiple allowed (concatenate with '&&')<br>Parsed in order of entry | string |         | NULL    |
 
-### PARAMETERS
-`string` - (string $input = "") The string being formatted.
-`actions` - (string $actions = "[actions&&listed&&below]") Multiple allowed. Executed in order of listing.
-   - strtoupper
-   - strtolower
-   - ucfirst
-   - lcfirst
-   - ucwords
-   - stripslashes
-   - trim
-
-### EXAMPLES
-{exp:format_this:string}
-- Returns: Hello World! The quick brown fox jumps over the lazy dog.
-
-{exp:format_this:string string="Hello World!"}
-- Returns: Hello World!
-
-{exp:format_this:string}Hello World!{/exp:format_this:string}
-- Returns: Hello World!
-
-
-## {exp:format_this:number}
-
-### PARAMETERS
-number - (float $input = 0.0) The number being formatted.
-decimals - (int $decimals = 0) Sets the number of decimal points.
-dec_point - (string $dec_point = ".") Sets the separator for the decimal point.
-thousands_sep - (string $thousands_sep = ",") Sets the thousands separator.
-
-### EXAMPLES
-{exp:format_this:number number="1234.56"}
-- Returns: 1,234
-
-{exp:format_this:number number="1234.56" decimals="2"}
-- Returns: 1,234.56
-
-{exp:format_this:number number="1234.56" decimals="2" dec_point="," thousands_sep="."}
-- Returns: 1.234,56
-
-{exp:format_this:number}1234.56{/exp:format_this:number}
-- Returns: 1,234
-
-{exp:format_this:number number="1234.56" decimals="2"}1234.56{/exp:format_this:number}
-- Returns: 1,234.56
-
-{exp:format_this:number number="1234.56" decimals="2" dec_point="," thousands_sep="."}1234.56{/exp:format_this:number}
-- Returns: 1.234,56
-
-
-## {exp:format_this:strip}
-
-### PARAMETERS
-string - (string $input = "") The string being formatted.
-find - (array $find = "[characters&&to&&find]") Multiple allowed. Executed in order of listing.
-replace - (array $replace = "[characters&&for&&replace]") Multiple allowed. Executed in order of listing.
-
-### EXAMPLES
-{exp:format_this:strip}
-- Returns: Hello World! The quick brown fox jumps over the lazy dog.
-
-{exp:format_this:strip string="Hello World!"}
-- Returns: Hello World!
-
-{exp:format_this:strip}Hello World!{/exp:format_this:string}
-- Returns: Hello World!
+&nbsp;
+## Examples
+| Usage                                                                                                                      | Results                                                      |
+|----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| {exp:format_this:string}                                                                                                   | Hello World! The quick brown fox<br>jumps over the lazy dog. |
+| {exp:format_this:string<br>string="Hello World!"<br>}                                                                      | Hello World!                                                 |
+| {exp:format_this:string}<br>Hello World!<br>{/exp:format_this:string}                                                      | Hello World!                                                 |
+| {exp:format_this:number<br>number="1234.56"<br>}                                                                           | 1,234                                                        |
+| {exp:format_this:number<br>number="1234.56"<br>decimals="2"<br>}                                                           | 1,234.56                                                     |
+| {exp:format_this:number<br>number="1234.56"<br>decimals="2"<br>dec_point=","<br>thousands_sep="."<br>}                     | 1.234,56                                                     |
+| {exp:format_this:number}<br>1234.56<br>{/exp:format_this:number}                                                           | 1,234                                                        |
+| {exp:format_this:number<br>decimals="2"<br>}<br>1234.56<br>{/exp:format_this:number}                                       | 1,234.56                                                     |
+| {exp:format_this:number<br>decimals="2"<br>dec_point=","<br>thousands_sep="."<br>}<br>1234.56<br>{/exp:format_this:number} | 1.234,56                                                     |
+| {exp:format_this:strip}                                                                                                    | Hello World! The quick brown fox<br>jumps over the lazy dog. |
+| {exp:format_this:strip<br>string="Hello World!"<br>find="!"<br>replace=""<br>}                                             | Hello World                                                  |
+| {exp:format_this:strip<br>find=" World"<br>replace=""<br>}<br>Hello World!<br>{/exp:format_this:strip}                     | Hello!                                                       |

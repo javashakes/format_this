@@ -168,7 +168,7 @@ class Format_this {
 	}
 	
 	/**
-	 * Plugin Usage
+	 * Plugin Usage for EE2
      *
      * @access  public
      * @return  string
@@ -178,10 +178,10 @@ class Format_this {
 		$output = file_get_contents(PATH_THIRD.'format_this/README.md');
 
 		// converts Markdown to HTML
-		// ee()->load->add_package_path(PATH_THIRD.FORMAT_THIS_PACKAGE.'/');
-		// ee()->load->library('parsedown/parsedown');
-		// $usage = new Parsedown();
-		// $output = strip_tags($usage->text($output));
+		ee()->load->add_package_path(PATH_THIRD.FORMAT_THIS_PACKAGE.'/');
+		ee()->load->library('parsedown/parsedown');
+		$usage = new Parsedown();
+		$output = strip_tags($usage->text($output));
 
 		return $output;
 	}
