@@ -26,7 +26,7 @@ $plugin_info = array(
 
 class Format_this {
 
-	public $return_data;
+	public $return_data = '';
     
 	/**
 	 * Constructor
