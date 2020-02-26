@@ -6,8 +6,15 @@ ExpressionEngine Plugin that exposes a few simple PHP string and number formatin
 ## {exp:format_this:string}
 
 ### PARAMETERS
-- `string`: The input being formatted. [Type: string, Default: NULL]
-- `actions`: Multiple allowed (concatenate each with `&&`. Parsed in order of listing. [Type: string, Default: NULL, Options: strtoupper, strtolower, ucfirst, lcfirst, ucwords, stripslashes, trim]
+- `string`
+  - **Description:** The input being formatted.
+  - **Type:** `string`
+  - **Default:** `NULL`
+- `actions`
+  - **Description:** Multiple allowed, parsed in order of entry.
+  - **Type:** `string`
+  - **Options:** `strtoupper`, `strtolower`, `ucfirst`, `lcfirst`, `ucwords`, `stripslashes`, `trim` (concatenate with `&&` for multiple entries)
+  - **Default:** `NULL`
 
 ### EXAMPLES
 {exp:format_this:string}
