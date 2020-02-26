@@ -10,7 +10,7 @@
  * @link		http://www.designafterdusk.com
  */
 
-// 
+// EE 2x Compatibility
 $plugin_info = array(
 	'pi_name'		=> FORMAT_THIS_NAME,
 	'pi_version'	=> FORMAT_THIS_VERSION,
