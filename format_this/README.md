@@ -3,11 +3,19 @@ ExpressionEngine Plugin that exposes a few simple PHP string and number formatin
 
 **Compatible with EE v2, v3, v4, and v5**
 
+
 ## {exp:format_this:string}
 
 ### PARAMETERS
-- `string`: The input being formatted. [Type: string, Default: NULL]
-- `actions`: Multiple allowed (concatenate each with `&&`. Parsed in order of listing. [Type: string, Default: NULL, Options: strtoupper, strtolower, ucfirst, lcfirst, ucwords, stripslashes, trim]
+`string` - (string $input = "") The string being formatted.
+`actions` - (string $actions = "[actions&&listed&&below]") Multiple allowed. Executed in order of listing.
+   - strtoupper
+   - strtolower
+   - ucfirst
+   - lcfirst
+   - ucwords
+   - stripslashes
+   - trim
 
 ### EXAMPLES
 {exp:format_this:string}
