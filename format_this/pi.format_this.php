@@ -20,8 +20,7 @@ $plugin_info = array(
 	'pi_version'		=> FORMAT_THIS_VERSION,
 	'pi_author'			=> FORMAT_THIS_AUTHOR,
 	'pi_author_url'		=> FORMAT_THIS_AUTHOR_URL,
-	'pi_description'	=> FORMAT_THIS_DESC,
-	'pi_usage'			=> Format_this::usage()
+	'pi_description'	=> FORMAT_THIS_DESC
 );
 
 class Format_this {
@@ -167,24 +166,6 @@ class Format_this {
 
 	}
 	
-	/**
-	 * Plugin Usage for EE2
-     *
-     * @access  public
-     * @return  string
-    */
-	public static function usage()
-	{
-		$output = file_get_contents(PATH_THIRD.'format_this/README.md');
-
-		// converts Markdown to HTML
-		ee()->load->add_package_path(PATH_THIRD.FORMAT_THIS_PACKAGE.'/');
-		ee()->load->library('parsedown/parsedown');
-		$usage = new Parsedown();
-		$output = strip_tags($usage->text($output));
-
-		return $output;
-	}
 }
 
 /* End of file pi.format_this.php */
