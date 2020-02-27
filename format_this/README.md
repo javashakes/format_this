@@ -1,5 +1,7 @@
 # Documentation
-An ExpressionEngine Plugin that exposes a few simple PHP string and number formating functions to EE templates.
+ExpressionEngine Plugin that exposes a few simple PHP string and number formating functions into EE templates.
+
+**Compatible with EE v2-5**
 
 # `{exp:format_this:string}`
 | parameter | description                                                          | type   | options                                                                           | default |
