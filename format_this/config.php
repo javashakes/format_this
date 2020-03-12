@@ -13,7 +13,7 @@
 if ( ! defined('FORMAT_THIS_NAME'))
 {
     define('FORMAT_THIS_NAME',              'Format This!');
-    define('FORMAT_THIS_VERSION',           '2.1.0');
+    define('FORMAT_THIS_VERSION',           '1.0.0');
     define('FORMAT_THIS_AUTHOR',            'Matthew Kirkpatrick');
     define('FORMAT_THIS_AUTHOR_URL',        'https://github.com/javashakes');
     define('FORMAT_THIS_DOCS',              'https://github.com/javashakes/format_this');
