@@ -19,7 +19,7 @@ if ( ! defined('FORMAT_THIS_NAME'))
     define('FORMAT_THIS_DOCS',              'https://github.com/javashakes/format_this');
     define('FORMAT_THIS_DESC',              '<p><strong>An ExpressionEngine Plugin that exposes a few simple PHP string and number formating functions to EE templates.</strong></p>Documentation and Usage: <a href="' . FORMAT_THIS_DOCS . '" target="_blank">' . FORMAT_THIS_DOCS . '</a>');
     define('FORMAT_THIS_PACKAGE',           'format_this');
-    define('FORMAT_THIS_NAMESPACE',         'FormatThis');
+    define('FORMAT_THIS_NAMESPACE',         'javashakes\FormatThis');
     define('FORMAT_THIS_CLASS_NAME',        'Format_this');
 }
 
